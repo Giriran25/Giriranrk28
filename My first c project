@@ -1,0 +1,144 @@
+#include <stdio.h>
+#include <string.h>
+
+// Structure to represent a book
+struct Book {
+    int id;
+    char title[100];
+    char author[100];
+    int year;
+};
+
+// Function to add a book to the library
+void addBook(struct Book library[], int *bookCount) {
+    printf("\nEnter book details:\n");
+
+    // Get the details of the book from the user
+    printf("Enter book ID: ");
+    scanf("%d", &library[*bookCount].id);
+
+    getchar();  // Consume newline character left by scanf
+    printf("Enter book title: ");
+    fgets(library[*bookCount].title, sizeof(library[*bookCount].title), stdin);
+    library[*bookCount].title[strcspn(library[*bookCount].title, "\n")] = '\0'; // Remove newline character from string
+
+    printf("Enter book author: ");
+    fgets(library[*bookCount].author, sizeof(library[*bookCount].author), stdin);
+    library[*bookCount].author[strcspn(library[*bookCount].author, "\n")] = '\0'; // Remove newline character from string
+
+    printf("Enter year of publication: ");
+    scanf("%d", &library[*bookCount].year);
+
+    (*bookCount)++;
+    printf("Book added successfully!\n");
+}
+
+// Function to remove a book from the library
+void removeBook(struct Book library[], int *bookCount) {
+    int bookId, found = 0;
+
+    printf("\nEnter the ID of the book to remove: ");
+    scanf("%d", &bookId);
+
+    for (int i = 0; i < *bookCount; i++) {
+        if (library[i].id == bookId) {
+            for (int j = i; j < *bookCount - 1; j++) {
+                library[j] = library[j + 1]; // Shift books down
+            }
+            (*bookCount)--;
+            found = 1;
+            printf("Book removed successfully!\n");
+            break;
+        }
+    }
+
+    if (!found) {
+        printf("Book with ID %d not found.\n", bookId);
+    }
+}
+
+// Function to view all books in the library
+void viewBooks(struct Book library[], int bookCount) {
+    if (bookCount == 0) {
+        printf("\nNo books available in the library.\n");
+        return;
+    }
+
+    printf("\nList of books:\n");
+    for (int i = 0; i < bookCount; i++) {
+        printf("ID: %d\n", library[i].id);
+        printf("Title: %s\n", library[i].title);
+        printf("Author: %s\n", library[i].author);
+        printf("Year: %d\n\n", library[i].year);
+    }
+}
+
+// Function to search for a book by title
+void searchBook(struct Book library[], int bookCount) {
+    char searchTitle[100];
+    int found = 0;
+
+    printf("\nEnter book title to search: ");
+    getchar(); // To clear the newline character left by previous scanf
+    fgets(searchTitle, sizeof(searchTitle), stdin);
+    searchTitle[strcspn(searchTitle, "\n")] = '\0'; // Remove newline character from string
+
+    for (int i = 0; i < bookCount; i++) {
+        if (strstr(library[i].title, searchTitle) != NULL) {
+            printf("\nBook found:\n");
+            printf("ID: %d\n", library[i].id);
+            printf("Title: %s\n", library[i].title);
+            printf("Author: %s\n", library[i].author);
+            printf("Year: %d\n\n", library[i].year);
+            found = 1;
+        }
+    }
+
+    if (!found) {
+        printf("No books found with the title \"%s\".\n", searchTitle);
+    }
+}
+
+// Menu for interacting with the library system
+void menu() {
+    printf("\nLibrary Management System\n");
+    printf("1. Add a Book\n");
+    printf("2. Remove a Book\n");
+    printf("3. View All Books\n");
+    printf("4. Search a Book by Title\n");
+    printf("5. Exit\n");
+}
+
+int main() {
+    struct Book library[100];
+    int bookCount = 0;
+    int choice;
+
+    while (1) {
+        menu();
+        printf("\nEnter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                addBook(library, &bookCount);
+                break;
+            case 2:
+                removeBook(library, &bookCount);
+                break;
+            case 3:
+                viewBooks(library, bookCount);
+                break;
+            case 4:
+                searchBook(library, bookCount);
+                break;
+            case 5:
+                printf("Exiting program...\n");
+                return 0;
+            default:
+                printf("Invalid choice! Please try again.\n");
+        }
+    }
+
+    return 0;
+}
