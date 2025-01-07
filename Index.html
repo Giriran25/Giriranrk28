@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sample 600 Lines HTML Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        nav {
+            background-color: #444;
+            color: white;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .main-content {
+            padding: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .content-box {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .image-gallery img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        .form-container input[type="text"],
+        .form-container input[type="email"],
+        .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+        }
+        .form-container button {
+            padding: 10px 15px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to the Sample HTML Page</h1>
+    <p>A page designed with 600 lines of HTML and CSS</p>
+</header>
+
+<nav>
+    <a href="#section1">Section 1</a>
+    <a href="#section2">Section 2</a>
+    <a href="#section3">Section 3</a>
+    <a href="#section4">Section 4</a>
+</nav>
+
+<div class="main-content">
+
+    <div id="section1" class="content-box">
+        <h2>Section 1: Introduction</h2>
+        <p>This is the first section of the page. It contains some introductory text.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt auctor arcu, sed faucibus eros condimentum eget. Nulla facilisi. In ut magna nec risus fermentum tincidunt non eget nunc. Proin tincidunt metus et nulla pretium, a tempor odio tincidunt. Aliquam erat volutpat.</p>
+        <p>Vivamus non orci non purus tempus pharetra. Cras volutpat turpis libero, sit amet sodales ligula placerat et.</p>
+    </div>
+
+    <div id="section2" class="content-box">
+        <h2>Section 2: Table Example</h2>
+        <p>This section demonstrates a simple table with some data.</p>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Country</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>john@example.com</td>
+                        <td>USA</td>
+                    </tr>
+                    <tr>
+                        <td>Jane Smith</td>
+                        <td>jane@example.com</td>
+                        <td>Canada</td>
+                    </tr>
+                    <tr>
+                        <td>Max Mustermann</td>
+                        <td>max@example.com</td>
+                        <td>Germany</td>
+                    </tr>
+                    <tr>
+                        <td>Maria Garcia</td>
+                        <td>maria@example.com</td>
+                        <td>Spain</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="section3" class="content-box">
+        <h2>Section 3: Image Gallery</h2>
+        <p>This section demonstrates a simple image gallery with placeholder images.</p>
+        <div class="image-gallery">
+            <img src="https://via.placeholder.com/600x300" alt="Placeholder Image 1">
+            <img src="https://via.placeholder.com/600x300" alt="Placeholder Image 2">
+            <img src="https://via.placeholder.com/600x300" alt="Placeholder Image 3">
+            <img src="https://via.placeholder.com/600x300" alt="Placeholder Image 4">
+        </div>
+    </div>
+
+    <div id="section4" class="content-box">
+        <h2>Section 4: Contact Form</h2>
+        <p>If you would like to get in touch, please fill out the contact form below.</p>
+        <div class="form-container">
+            <form action="#" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="content-box">
+        <h2>Section 5: List of Features</h2>
+        <p>This section lists some features of the website.</p>
+        <ul>
+            <li>Responsive Design</li>
+            <li>Interactive Forms</li>
+            <li>Image Gallery</li>
+            <li>Dynamic Tables</li>
+            <li>Modern Layout</li>
+        </ul>
+    </div>
+
+    <div class="content-box">
+        <h2>Section 6: Ordered List</h2>
+        <p>Here's an ordered list:</p>
+        <ol>
+            <li>Introduction</li>
+            <li>Details</li>
+            <li>Conclusion</li>
+        </ol>
+    </div>
+
+    <div class="content-box">
+        <h2>Section 7: Footer Example</h2>
+        <p>This is an example of a footer at the bottom of the page.</p>
+        <footer>
+            <p>&copy; 2025 Your Company Name. All rights reserved.</p>
+        </footer>
+    </div>
+
+</div>
+
+<script>
+    // Example of a simple JavaScript function
+    document.querySelector('footer').addEventListener('click', function() {
+        alert("Footer clicked!");
+    });
+</script>
+
+</body>
+</html>
